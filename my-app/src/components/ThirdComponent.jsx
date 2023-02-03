@@ -6,7 +6,7 @@ import SingleMovie from "./SingleMovie";
 // http://www.omdbapi.com/?i=tt3896198&apikey=447ab8e0
 // harry%20potter
 
-class SecondComponent extends Component {
+class ThirdComponent extends Component {
   state = {
     url: "http://www.omdbapi.com/?apikey=447ab8e0&s=",
     movies: [],
@@ -38,10 +38,10 @@ class SecondComponent extends Component {
 
   render() {
     return (
-      <Row>
+      <Row Row className="justify-content-center no-gutters">
         {this.state.movies.map((objectOfMovies) => {
           return (
-            <Col xs={8} key={objectOfMovies.imdbID}>
+            <Col xs={2} key={objectOfMovies.imdbID}>
               <SingleMovie objectOfMovies={objectOfMovies} />
             </Col>
           );
@@ -51,4 +51,4 @@ class SecondComponent extends Component {
   }
 }
 
-export default SecondComponent;
+export default ThirdComponent;

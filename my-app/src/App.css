@@ -37,6 +37,25 @@
   }
 }
 
+.navbar {
+  background-color: #000;
+  margin: 0;
+  padding: 0 !important;
+  width: 100vw;
+}
+
+.collapse {
+  justify-content: space-between;
+}
+
 #logo {
   height: 50px;
+}
+
+#avatar {
+  height: 50px;
+}
+
+.root {
+  background-color: #000;
 }

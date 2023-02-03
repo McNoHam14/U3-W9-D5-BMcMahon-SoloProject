@@ -1,12 +1,8 @@
 import { Component } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Carousel, Container, Row, Col } from "react-bootstrap";
 import SingleMovie from "./SingleMovie";
 
-// 447ab8e0
-// http://www.omdbapi.com/?i=tt3896198&apikey=447ab8e0
-// harry%20potter
-
-class SecondComponent extends Component {
+class CarouselMovies extends Component {
   state = {
     url: "http://www.omdbapi.com/?apikey=447ab8e0&s=",
     movies: [],
@@ -38,17 +34,24 @@ class SecondComponent extends Component {
 
   render() {
     return (
-      <Row className="justify-content-center no-gutters">
-        {this.state.movies.map((objectOfMovies) => {
-          return (
-            <Col xs={2} key={objectOfMovies.imdbID}>
-              <SingleMovie objectOfMovies={objectOfMovies} />
-            </Col>
-          );
-        })}
-      </Row>
+      <Container>
+        <Row className="mt-3 justify-content-center">
+          <Col xs={12} md={6} className="text-center">
+            <h2 style={{ color: "white" }}>Carousel of Movies</h2>
+            <Carousel>
+              {this.state.movies.map((objectOfMovies) => {
+                return (
+                  <Col xs={2} key={objectOfMovies.imdbID}>
+                    <SingleMovie objectOfMovies={objectOfMovies} />
+                  </Col>
+                );
+              })}
+            </Carousel>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
 
-export default SecondComponent;
+export default CarouselMovies;

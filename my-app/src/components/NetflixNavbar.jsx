@@ -6,7 +6,7 @@ import avatar from "../assets/avatar.png";
 class NetflixNavbar extends Component {
   render() {
     return (
-      <Navbar bg="light" expand="lg">
+      <Navbar className="nav-bar" bg="light" expand="lg">
         <nav className="navbar navbar-expand-lg navbar-dark">
           <div className="container-fluid">
             <Nav.Link
@@ -126,13 +126,13 @@ class NetflixNavbar extends Component {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <img src="./assets/avatar.png" alt="avatar" id="avatar" />
+                      <img src={avatar} alt="avatar" id="avatar" />
                     </button>
                     <ul className="dropdown-menu dropdown-menu-dark">
                       <li>
                         <Nav.Link
                           className="dropdown-item"
-                          href="http://ubeytdemir.me/netflix-ui/profile.html"
+                          href="hhttps://www.netflix.com/gb/"
                         >
                           <div className="d-flex align-items-center">
                             <img src={avatar} alt="avatar" id="avatar-small" />
@@ -142,7 +142,7 @@ class NetflixNavbar extends Component {
                       <li>
                         <Nav.Link
                           className="dropdown-item"
-                          href="http://ubeytdemir.me/netflix-ui/profile.html"
+                          href="https://www.netflix.com/gb/"
                         >
                           Manage Profiles
                         </Nav.Link>
@@ -150,7 +150,7 @@ class NetflixNavbar extends Component {
                       <li>
                         <Nav.Link
                           className="dropdown-item"
-                          href="http://ubeytdemir.me/netflix-ui/accounts.html"
+                          href="https://www.netflix.com/gb/"
                         >
                           Account
                         </Nav.Link>
