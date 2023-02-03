@@ -11,11 +11,15 @@ function App() {
     <div className="root">
       <NetflixNavbar />
       <MainComponent />
-      <h1 style={{ color: "white" }}>Harry Potter Render</h1>
-      <SecondComponent />
-      <h1 style={{ color: "white" }}> Lord of the Rings Render</h1>
+
+      <SecondComponent category={"Harry Potter"} />
+      <SecondComponent category={"Toy Story"} />
+      <SecondComponent category={"Star Wars"} />
+
+      <h1 style={{ color: "white" }}> Lord of the Rings</h1>
       <ThirdComponent />
-      <CarouselMovies />
+
+      <CarouselMovies category={"Fast Furious"} />
     </div>
   );
 }

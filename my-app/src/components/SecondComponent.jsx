@@ -14,7 +14,9 @@ class SecondComponent extends Component {
 
   fetchMovies = async () => {
     try {
-      let response = await fetch(this.state.url + "harry%20potter");
+      let response = await fetch(
+        `http://www.omdbapi.com/?apikey=447ab8e0&s=${this.props.category}`
+      );
       if (response.ok) {
         let data = await response.json();
         console.log(data);
@@ -38,15 +40,18 @@ class SecondComponent extends Component {
 
   render() {
     return (
-      <Row className="justify-content-center no-gutters">
-        {this.state.movies.map((objectOfMovies) => {
-          return (
-            <Col xs={2} key={objectOfMovies.imdbID}>
-              <SingleMovie objectOfMovies={objectOfMovies} />
-            </Col>
-          );
-        })}
-      </Row>
+      <>
+        <h1 style={{ color: "white" }}>{this.props.category} Movie List</h1>
+        <Row className="justify-content-center no-gutters">
+          {this.state.movies.map((objectOfMovies) => {
+            return (
+              <Col xs={2} key={objectOfMovies.imdbID}>
+                <SingleMovie objectOfMovies={objectOfMovies} />
+              </Col>
+            );
+          })}
+        </Row>
+      </>
     );
   }
 }

@@ -10,7 +10,9 @@ class CarouselMovies extends Component {
 
   fetchMovies = async () => {
     try {
-      let response = await fetch(this.state.url + "harry%20potter");
+      let response = await fetch(
+        `http://www.omdbapi.com/?apikey=447ab8e0&s=${this.props.category}`
+      );
       if (response.ok) {
         let data = await response.json();
         console.log(data);
@@ -37,13 +39,13 @@ class CarouselMovies extends Component {
       <Container>
         <Row className="mt-3 justify-content-center">
           <Col xs={12} md={6} className="text-center">
-            <h2 style={{ color: "white" }}>Carousel of Movies</h2>
+            <h1 style={{ color: "white" }}>{this.props.category} Movie List</h1>
             <Carousel>
               {this.state.movies.map((objectOfMovies) => {
                 return (
-                  <Col xs={2} key={objectOfMovies.imdbID}>
+                  <Carousel.Item xs={2} key={objectOfMovies.imdbID}>
                     <SingleMovie objectOfMovies={objectOfMovies} />
-                  </Col>
+                  </Carousel.Item>
                 );
               })}
             </Carousel>
