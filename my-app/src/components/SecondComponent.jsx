@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Alert, Spinner } from "react-bootstrap";
 import SingleMovie from "./SingleMovie";
 
 // 447ab8e0
@@ -8,8 +8,9 @@ import SingleMovie from "./SingleMovie";
 
 class SecondComponent extends Component {
   state = {
-    url: "http://www.omdbapi.com/?apikey=447ab8e0&s=",
     movies: [],
+    isLoading: true,
+    isError: false,
   };
 
   fetchMovies = async () => {
@@ -25,12 +26,22 @@ class SecondComponent extends Component {
         this.setState({
           ...this.state,
           movies: dataMovie,
+          isLoading: false,
         });
       } else {
         console.log("error");
+        this.setState({
+          ...this.state,
+          isLoading: false,
+          isError: true,
+        });
       }
     } catch (error) {
       console.log(error);
+      this.setState({
+        isError: true,
+        isLoading: false,
+      });
     }
   };
 
@@ -41,6 +52,10 @@ class SecondComponent extends Component {
   render() {
     return (
       <>
+        {this.state.isError && <Alert variant="danger">Error!</Alert>}
+        {this.state.isLoading && (
+          <Spinner animation="border" variant="success" />
+        )}
         <h1 style={{ color: "white" }}>{this.props.category} Movie List</h1>
         <Row className="justify-content-center no-gutters">
           {this.state.movies.map((objectOfMovies) => {

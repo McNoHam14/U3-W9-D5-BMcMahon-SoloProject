@@ -14,7 +14,7 @@ function App() {
 
       <SecondComponent category={"Harry Potter"} />
       <SecondComponent category={"Toy Story"} />
-      <SecondComponent category={"Star Wars"} />
+      <SecondComponent category={"Lion King"} />
 
       <h1 style={{ color: "white" }}> Lord of the Rings</h1>
       <ThirdComponent />

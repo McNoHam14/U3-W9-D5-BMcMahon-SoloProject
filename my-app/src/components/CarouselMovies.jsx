@@ -1,10 +1,9 @@
 import { Component } from "react";
-import { Carousel, Container, Row, Col } from "react-bootstrap";
+import { Carousel, Container, Row, Col, Stack } from "react-bootstrap";
 import SingleMovie from "./SingleMovie";
 
 class CarouselMovies extends Component {
   state = {
-    url: "http://www.omdbapi.com/?apikey=447ab8e0&s=",
     movies: [],
   };
 
@@ -37,14 +36,16 @@ class CarouselMovies extends Component {
   render() {
     return (
       <Container>
-        <Row className="mt-3 justify-content-center">
+        <Row className="justify-content-center">
           <Col xs={12} md={6} className="text-center">
             <h1 style={{ color: "white" }}>{this.props.category} Movie List</h1>
             <Carousel>
               {this.state.movies.map((objectOfMovies) => {
                 return (
                   <Carousel.Item xs={2} key={objectOfMovies.imdbID}>
-                    <SingleMovie objectOfMovies={objectOfMovies} />
+                    <div>
+                      <SingleMovie objectOfMovies={objectOfMovies} />
+                    </div>
                   </Carousel.Item>
                 );
               })}
